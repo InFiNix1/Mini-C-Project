@@ -1,0 +1,18 @@
+The Bug - Prompt To Take User Input of Type Character
+
+char choice;
+
+printf("Enter Your Choice (y/N): ");
+scanf("%c", &choice);
+
+
+Here, scanf is broken becuase of white spaces in the input buffer of stdin
+
+Even fflush(stdin) has an undefined behaviour, which is a complete no no.
+
+The simple solution is to add a white a white space before reading the char
+
+Solution ---
+
+scanf(" %c", &choice); //Here There is a white space in front of %c which tell scanf to ignore any white spaces before it.
+       ^_______
