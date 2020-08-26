@@ -11,7 +11,7 @@ int count=0;
 int reset=1;
 void Display()
 {
-    printf("\n\t\t\t\tTIC-TAC-TOE");
+    printf("\n\n\t\t\t\tTIC-TAC-TOE");
     printf("\n\t\t\t\t   GAME");
 
     printf("\n\n\t\t\t\t|---|---|---|");
@@ -121,24 +121,23 @@ void Result()
 
     }
 }
-int  Start()
+void Start()
 {
     while(end)
     {
         Display();
         GetInput();
-        Display();
         Result();
     }
 }
 
 void ResetGame()
 {
-    int choice;
+    char choice;
     fflush(stdin);
-    printf("\n\nRESTART GAME? (y/N)(1/0): ");
-    scanf("%d", &choice);
-    if(choice)
+    printf("\n\nRESTART GAME? (y/N): ");
+    scanf(" %c", &choice);
+    if(choice=='Y' || choice=='y')
     {
         end=1;
         Start();
@@ -149,9 +148,9 @@ void ResetGame()
 void ResetArray()
 {
 
-    char grid[9]={'1', '2', '3',
-        '4', '5', '6',
-        '7', '8', '9'};
+    grid[0]='1'; grid[1]='2'; grid[2]='3';
+    grid[3]='4'; grid[4]='5'; grid[5]='6';
+    grid[6]='7'; grid[7]='8'; grid[8]='9';
     set=0;
 }
 
@@ -169,7 +168,7 @@ int main()
         reset=0;
     }
 
-    printf("\nCREDITS: SAURONIL DAS\n\n");
+    printf("\n\nCREDITS: SAURONIL DAS\n\n");
 
 
     return 0;
